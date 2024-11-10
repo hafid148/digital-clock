@@ -9,20 +9,31 @@ function setClock() {
     "Sabtu",
   ];
   const now = new Date();
-  const years = now.getFullYear();
-  const date = now.getDate();
-  const month = now.getMonth();
-  const jam = now.getHours();
-  const menit = now.getMinutes();
-  const detik = now.getSeconds();
   const day = dayName[now.getDay()];
+  const date = now.getDate();
+  const month = now.getUTCMonth();
+  const years = now.getFullYear();
 
-  document.getElementById("hari").textContent = `${day}`;
-  document.getElementById("years").textContent = `${years}`;
-  document.getElementById("month").textContent = `${month}`;
+  const hours = now.getHours();
+  const minute = now.getMinutes();
+  const second = now.getSeconds();
+  const tambah = (second / 60) * 360 + 90;
+  const tambahMenit = (minute / 60) * 360 + 90;
+  const tambahJam = (hours / 60) * 360 + 90;
+
+  document.getElementById("shape3").style.transform = `rotate(${tambahJam}deg)`;
+
+  document.getElementById("shape").style.transform = `rotate(${tambah}deg)`;
+  document.getElementById(
+    "shape2"
+  ).style.transform = `rotate(${tambahMenit}deg)`;
+
+  document.getElementById("day").textContent = `${day}`;
   document.getElementById("date").textContent = `${date}`;
-  document.getElementById("jam").textContent = `${jam}`;
-  document.getElementById("menit").textContent = `${menit}`;
-  document.getElementById("detik").textContent = `${detik}`;
+  document.getElementById("month").textContent = `${month}`;
+  document.getElementById("years").textContent = `${years}`;
+  document.getElementById("jam").textContent = `${hours}`;
+  document.getElementById("menit").textContent = `${minute}`;
+  document.getElementById("detik").textContent = `${second}`;
 }
 setInterval(setClock, 1000);

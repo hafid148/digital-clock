@@ -4,6 +4,11 @@ body {
   display: grid;
   place-items: center;
 }
+.shape {
+  background-color: #333;
+  width: 100px;
+  height: 10px;
+}
 .center {
   position: absolute;
   top: 40%;
@@ -12,20 +17,18 @@ body {
   flex-direction: column;
   justify-content: center;
 }
+.center:hover {
+  text-shadow: 0 0 10px white, 0 0 20px white;
+  transition: 0.6s;
+}
 .tanggal {
   display: flex;
   gap: 10px;
   font-size: 2rem;
-}
-.tanggal div {
-  text-shadow: 0px 0px 10px white, 0 0 30px #ffffff;
 }
 
 .clock {
   display: flex;
   gap: 10px;
   font-size: 5rem;
-}
-.clock div {
-  text-shadow: 0 0 10px white, 0 0 20px white;
 }
